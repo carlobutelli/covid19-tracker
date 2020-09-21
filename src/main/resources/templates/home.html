@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Covid-19 Tracker App</title>
+</head>
+<body>
+    <h1 class="page-title">Covid-19 Pandemic Tracker</h1>
+    <p class="page-desc">This application shows the current number of cases reported across the world</p>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h2 class="lead">Confirmed Cases</h2>
+                    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+                </div>
+                <div class="col-sm">
+                    <h2 class="lead">Active</h2>
+                    <h1 class="display-4" th:text="${totalActiveCases}" style="color: #696969"></h1>
+                </div>
+                <div class="col-sm">
+                    <h2 class="lead">Deaths</h2>
+                    <h1 class="display-4" th:text="${totalDeathsCases}" style="color: #FF0000"></h1>
+                </div>
+                <div class="col-sm">
+                    <h2 class="lead">Recovered</h2>
+                    <h1 class="display-4" th:text="${totalRecoveredCases}" style="color:#8ACA2B"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>State</th>
+            <th>Last-Update</th>
+            <th>Total<br>Confirmed</th>
+            <th>Total<br>Active</th>
+            <th>Total<br>Deaths</th>
+            <th>Total<br>Recovered</th>
+            <th>Incidence<br>Rate</th>
+            <th>Case<br>Fatality<br>Ratio</th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.getCountry()}"></td>
+            <td th:text="${locationStat.getState()}"></td>
+            <td th:text="${locationStat.getLastUpdate()}"></td>
+            <td th:text="${locationStat.getConfirmed()}"></td>
+            <td th:text="${locationStat.getActive()}"></td>
+            <td th:text="${locationStat.getDeaths()}"></td>
+            <td th:text="${locationStat.getRecovered()}"></td>
+            <td th:text="${locationStat.getIncidenceRate()}"></td>
+            <td th:text="${locationStat.getCaseFatalityRatio()}"></td>
+        </tr>
+    </table>
+</body>
+</html>
