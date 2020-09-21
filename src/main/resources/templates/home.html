@@ -31,29 +31,31 @@
             </div>
         </div>
     </div>
-    <table>
-        <tr>
-            <th>Country</th>
-            <th>State</th>
-            <th>Last-Update</th>
-            <th>Total<br>Confirmed</th>
-            <th>Total<br>Active</th>
-            <th>Total<br>Deaths</th>
-            <th>Total<br>Recovered</th>
-            <th>Incidence<br>Rate</th>
-            <th>Case<br>Fatality<br>Ratio</th>
-        </tr>
-        <tr th:each="locationStat : ${locationStats}">
-            <td th:text="${locationStat.getCountry()}"></td>
-            <td th:text="${locationStat.getState()}"></td>
-            <td th:text="${locationStat.getLastUpdate()}"></td>
-            <td th:text="${locationStat.getConfirmed()}"></td>
-            <td th:text="${locationStat.getActive()}"></td>
-            <td th:text="${locationStat.getDeaths()}"></td>
-            <td th:text="${locationStat.getRecovered()}"></td>
-            <td th:text="${locationStat.getIncidenceRate()}"></td>
-            <td th:text="${locationStat.getCaseFatalityRatio()}"></td>
-        </tr>
+    <table id="main_table_countries_today" class="table table-bordered">
+        <thead>
+            <tr role="row">
+                <th>Country</th>
+                <th>State</th>
+                <th>Total<br>Confirmed</th>
+                <th>Total<br>Active</th>
+                <th>Total<br>Deaths</th>
+                <th>Total<br>Recovered</th>
+                <th>Incidence<br>Rate</th>
+                <th>Case<br>Fatality<br>Ratio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="locationStat : ${locationStats}">
+                <td th:text="${locationStat.getCountry()}" class="td-country"></td>
+                <td th:text="${locationStat.getState()}"></td>
+                <td th:text="${locationStat.getConfirmed()}"></td>
+                <td th:text="${locationStat.getActive()}"></td>
+                <td th:text="${locationStat.getDeaths()}"></td>
+                <td th:text="${locationStat.getRecovered()}"></td>
+                <td th:text="${locationStat.getIncidenceRate()}"></td>
+                <td th:text="${locationStat.getCaseFatalityRatio()}"></td>
+            </tr>
+        </tbody>
     </table>
 </body>
 </html>

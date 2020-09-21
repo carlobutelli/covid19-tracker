@@ -2,6 +2,10 @@ package io.shalldev.covid19tracker.models;
 
 import org.springframework.util.StringUtils;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class LocationStats {
 
     private String state;
@@ -11,23 +15,27 @@ public class LocationStats {
     private int deaths;
     private int recovered;
     private int active;
-    private String incidenceRate;
-    private String caseFatalityRatio;
+    private Double incidenceRate;
+    private Double caseFatalityRatio;
 
-    public String getIncidenceRate() {
+    public Double getIncidenceRate() {
         return incidenceRate;
     }
 
     public void setIncidenceRate(String incidenceRate) {
-        this.incidenceRate = incidenceRate;
+        this.incidenceRate = !StringUtils.isEmpty(incidenceRate) ? roundAvoid(Double.parseDouble(incidenceRate), 3) :
+                0.0;
+//        this.incidenceRate = incidenceRate;
     }
 
-    public String getCaseFatalityRatio() {
+    public Double getCaseFatalityRatio() {
         return caseFatalityRatio;
     }
 
     public void setCaseFatalityRatio(String caseFatalityRatio) {
-        this.caseFatalityRatio = caseFatalityRatio;
+//        this.caseFatalityRatio = caseFatalityRatio;
+        this.caseFatalityRatio = !StringUtils.isEmpty(caseFatalityRatio) ? roundAvoid(Double.parseDouble(caseFatalityRatio), 3) :
+                0.0;
     }
 
     public LocationStats() { }
@@ -103,5 +111,10 @@ public class LocationStats {
                 ", incidenceRate='" + incidenceRate + '\'' +
                 ", caseFatalityRatio='" + caseFatalityRatio + '\'' +
                 '}';
+    }
+
+    private static double roundAvoid(double value, int places) {
+        double scale = Math.pow(10, places);
+        return Math.round(value * scale) / scale;
     }
 }

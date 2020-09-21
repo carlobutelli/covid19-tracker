@@ -29,3 +29,37 @@
     color: #555;
     font-weight: 400;
 }
+
+.td-country {
+    color: #337ab7;
+    font-weight: bold;
+    text-align: left;
+}
+
+td {
+    font-weight: bold;
+    text-align: right;
+}
+
+thead {
+    background-color: #eee;
+}
+
+tr {
+    width: 100%;
+    display: inline-table;
+    height: 30px;
+    table-layout: fixed;
+}
+
+table{
+    display: -moz-groupbox;
+}
+
+tbody{
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
