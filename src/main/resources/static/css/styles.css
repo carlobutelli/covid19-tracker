@@ -46,6 +46,11 @@ thead {
     background-color: #eee;
 }
 
+.header th {
+    height: 2px;
+    line-height: 2px;
+}
+
 tr {
     width: 100%;
     display: inline-table;
