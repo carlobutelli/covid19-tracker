@@ -47,8 +47,8 @@ thead {
 }
 
 .header th {
-    height: 2px;
-    line-height: 2px;
+    line-height: 20px;
+    padding: 5px 0 4px 12px;
 }
 
 tr {
