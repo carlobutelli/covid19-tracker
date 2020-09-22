@@ -65,7 +65,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>covid19-tracker</finalName>
+		<finalName>covid19-tracker-api</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
