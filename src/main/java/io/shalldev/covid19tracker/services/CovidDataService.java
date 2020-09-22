@@ -71,13 +71,12 @@ public class CovidDataService {
             LocationStats locationStat = new LocationStats();
             locationStat.setState(record.get("Province_State"));
             locationStat.setCountry(record.get("Country_Region"));
-//            locationStat.setLastUpdate(record.get("Last_Update"));
             locationStat.setConfirmed(record.get("Confirmed"));
             locationStat.setActive(record.get("Active"));
             locationStat.setDeaths(record.get("Deaths"));
             locationStat.setRecovered(record.get("Recovered"));
             locationStat.setIncidenceRate(record.get("Incidence_Rate"));
-            locationStat.setCaseFatalityRatio(record.get("Case-Fatality_Ratio"));
+            locationStat.setFatalityRatio(record.get("Case-Fatality_Ratio"));
 
             this.confirmedCases += locationStat.getConfirmed();
             this.activeCases += locationStat.getActive();

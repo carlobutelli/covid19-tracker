@@ -16,7 +16,7 @@ public class LocationStats {
     private int recovered;
     private int active;
     private Double incidenceRate;
-    private Double caseFatalityRatio;
+    private Double fatalityRatio;
 
     public Double getIncidenceRate() {
         return incidenceRate;
@@ -28,13 +28,14 @@ public class LocationStats {
 //        this.incidenceRate = incidenceRate;
     }
 
-    public Double getCaseFatalityRatio() {
-        return caseFatalityRatio;
+    public Double getFatalityRatio() {
+        return fatalityRatio;
     }
 
-    public void setCaseFatalityRatio(String caseFatalityRatio) {
-//        this.caseFatalityRatio = caseFatalityRatio;
-        this.caseFatalityRatio = !StringUtils.isEmpty(caseFatalityRatio) ? roundAvoid(Double.parseDouble(caseFatalityRatio), 3) :
+    public void setFatalityRatio(String caseFatalityRatio) {
+//        this.fatalityRatio = fatalityRatio;
+        this.fatalityRatio = !StringUtils.isEmpty(caseFatalityRatio) ?
+                roundAvoid(Double.parseDouble(caseFatalityRatio), 3) :
                 0.0;
     }
 
@@ -103,13 +104,12 @@ public class LocationStats {
         return "LocationStats{" +
                 "state='" + state + '\'' +
                 ", country='" + country + '\'' +
-                ", lastUpdate='" + lastUpdate + '\'' +
                 ", confirmed='" + confirmed + '\'' +
                 ", deaths='" + deaths + '\'' +
                 ", recovered='" + recovered + '\'' +
                 ", active='" + active + '\'' +
                 ", incidenceRate='" + incidenceRate + '\'' +
-                ", caseFatalityRatio='" + caseFatalityRatio + '\'' +
+                ", fatalityRatio='" + fatalityRatio + '\'' +
                 '}';
     }
 
