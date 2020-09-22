@@ -17,6 +17,8 @@
 	<description>Java web application to show the total number of Covid-19 cases around the world as of today</description>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>12</java.version>
 	</properties>
 
