@@ -23,6 +23,7 @@
     margin: 0;
 }
 
+/* Table */
 .col-sm h2 {
     text-align: center;
     font-size: 30px;
@@ -65,4 +66,5 @@ tbody{
     position: absolute;
     margin: auto;
 }
+/*End table*/
 
